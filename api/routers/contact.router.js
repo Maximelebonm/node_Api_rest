@@ -1,4 +1,4 @@
-const BaseRouter = require("./baseRouter");
+const BaseRouter = require("./base.router");
 
 class ContactRouter extends BaseRouter {
 
