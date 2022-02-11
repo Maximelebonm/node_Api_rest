@@ -1,9 +1,15 @@
-const express = require("express")
+const express = require("express");
+
 
 const app = express();
-const contactRouter = require('./api/routers/contact.router');
 
-app.use('/contact', contactRouter);
+// const ContactRouter = require('./api/routers/contact.router');
+// app.use('/contact', new ContactRouter().router);
+
+const routers = require("./api/routers")
+for(const route in routers){
+    app.use(`/${route}`, new routers[route]().router)
+}
 
 app.use('/', ( req, res) => {
     res.send("ok");
