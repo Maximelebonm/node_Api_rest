@@ -17,8 +17,9 @@ class BaseController{
         return result;
     }
 
-    createOne = () => {
-        return `create new ${this.table} `;
+    createOne = async () => {
+        const result = await this.service.createOne();
+        return result;
     }
 
     updateOne = (id) => {

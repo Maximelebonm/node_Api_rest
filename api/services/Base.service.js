@@ -46,5 +46,10 @@ class BaseService {
         const rows =  await BaseService.executeQuery(sql);
         return rows.length == 1 ? rows.pop() : null;
     }
+    createOne = async() => {
+        const sql = `INSERT INTO ${this.table}`
+        const rows = await BaseService.executeQuery(sql);
+        return rows;
+    }
 }
 module.exports = BaseService;
