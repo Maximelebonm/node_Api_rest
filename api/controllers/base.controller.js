@@ -1,15 +1,20 @@
+const services = require("../services")
+
 class BaseController{
     constructor() {
         this.name = this.constructor.name.replace(`Controller`,``);
-        this.table = this.name.toLowerCase();     
+        this.table = this.name.toLowerCase();  
+        this.service = new services[this.table]();   
     }
 
-    getAll = () => {
-        return `get All ${this.table} `;
+    getAll = async () => {
+        const result = await this.service.getAll();
+        return result;
     }
 
-    getOne = (id) => {
-       return `get One ${this.table} row with id=${id}`;
+    getOne = async (id) => {
+        const result = await this.service.getOne(id);
+        return result;
     }
 
     createOne = () => {
@@ -21,7 +26,7 @@ class BaseController{
     }
 
     deleteOne = (id) => {
-        return `hard delete ${this.table} row with id=${id}`;
+        return `soft delete ${this.table} row with id=${id}`;
     }
 }
 module.exports = BaseController
