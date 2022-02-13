@@ -1,1 +1,10 @@
-POST  http://localhost:5002/contact
+POST http://localhost:5001/contact
+Content-Type: application/json
+
+{
+    "firstname":"truc",
+    "lastname" : "test",
+    "email":"test",
+    "message":"blabla"
+}
+

@@ -24,17 +24,21 @@ class BaseRouter {
       res.send(response);
     });
     //post to create one row in db table contact
+
     this.router.post("/", async (req, res) => {
-        const response = this.controller.createOne();
+        // console.log(req);
+        console.log(req.body);
+        const response = await this.controller.createOne(req.body);
       res.send(response);
     });
+
     //put to update one row in db table contact
     this.router.put("/:id", async (req, res) => {
         const response = this.controller.updateOne(req.params.id);
       res.send(response);
     });
     //delete to destroy one row in db table contact
-    this.router.delete("/:id", async (req, res) => {
+    this.router.patch("/:id", async (req, res) => {
         const response = this.controller.deleteOne(req.params.id);
       res.send(response);
     });

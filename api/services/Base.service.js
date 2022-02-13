@@ -46,10 +46,31 @@ class BaseService {
         const rows =  await BaseService.executeQuery(sql);
         return rows.length == 1 ? rows.pop() : null;
     }
-    createOne = async() => {
-        const sql = `INSERT INTO ${this.table}`
-        const rows = await BaseService.executeQuery(sql);
-        return rows;
+    createOne = async(values) => {
+        const fields = Object.keys(values)
+        console.log(fields);
+
+        // const firstname="firstname";
+        // const lastname="lastname";
+        // const email="email";
+        // const message="message";
+      console.log(values);
+        const ifirstname = values['firstname'];
+        const ilastname = values['lastname'];
+        const iemail = values['email'];
+        const imessage = values['message'];
+
+        const sql = `INSERT INTO ${this.table} (${fields[0]},${fields[1]},${fields[2]},${fields[3]}) VALUES('${ifirstname}','${ilastname}','${iemail}','${imessage}')`;
+        const result = await BaseService.executeQuery(sql);
+        // console.log(rows)
+        console.log(result.insertId);
+        if (result.insertId != null){
+            console.log("ok")
+            return "OK"
+        }
+        return result;
+        // VALUES {"email":"bla@bla.com","lastname":"testn","firstname":"sf","message":"jhkjh"}`;
+       // SELECT firstname=${firstname} , lastname=${lastname} , email=${email} ,message=${message}`;
     }
 }
 module.exports = BaseService;

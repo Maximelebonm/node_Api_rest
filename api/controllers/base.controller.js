@@ -17,8 +17,8 @@ class BaseController{
         return result;
     }
 
-    createOne = async () => {
-        const result = await this.service.createOne();
+    createOne = async (values) => {
+        const result = await this.service.createOne(values);
         return result;
     }
 
