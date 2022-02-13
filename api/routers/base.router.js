@@ -27,7 +27,7 @@ class BaseRouter {
 
     this.router.post("/", async (req, res) => {
         // console.log(req);
-        console.log(req.body);
+        console.log("requete arrivé : " , req.body);
         const response = await this.controller.createOne(req.body);
       res.send(response);
     });

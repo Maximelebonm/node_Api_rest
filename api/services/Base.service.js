@@ -48,13 +48,13 @@ class BaseService {
     }
     createOne = async(values) => {
         const fields = Object.keys(values)
-        console.log(fields);
+        console.log("fields dans base service : " , fields);
 
         // const firstname="firstname";
         // const lastname="lastname";
         // const email="email";
         // const message="message";
-      console.log(values);
+      console.log("values dans base service : " , values);
         const ifirstname = values['firstname'];
         const ilastname = values['lastname'];
         const iemail = values['email'];
