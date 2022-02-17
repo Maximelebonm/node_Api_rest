@@ -18,12 +18,13 @@ class BaseController{
     }
 
     createOne = async (values) => {
-        const result = await this.service.createOne(values);
+        const result = await this.service.insertOneOrMany(values);
         return result;
     }
 
-    updateOne = (id) => {
-        return `update ${this.table} row with id=${id} `;
+    updateOne = async (values, id) => {
+        const result = await this.service.updateOne(values, id)
+        return result;
     }
 
     deleteOne = (id) => {

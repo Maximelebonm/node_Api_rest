@@ -1,4 +1,5 @@
 const express = require("express");
+const MailerService = require("./api/services/mailer.service")
 
 const app = express();
 const cors = require("cors");
@@ -26,7 +27,20 @@ app.use('/', ( req, res) => {
 });
 
 //test
-const BaseService = require("./api/services/Base.service");
+// const BaseService = require("./api/services/Base.service");
+
+//TEST
+const mailerService = new MailerService();
+mailerService.sendMail({})
+const mailer = MailerService.sendMail({to:"bedulaurent@gmail.com", subject:"Validation de compte", html:'<button>Valider l\'inscription</button>'});
+// const BaseService = require('./api/services/base.service');
+// console.log();
+// const sql = "SELECT * FROM test WHERE id=1"; 
+// const test = async () => {
+//     const result = await BaseService.executeQuery(sql);
+//     const bp = 1;  
+// }
+// test();
 
 
 const PORT = 5001;

@@ -34,7 +34,7 @@ class BaseRouter {
 
     //put to update one row in db table contact
     this.router.put("/:id", async (req, res) => {
-        const response = this.controller.updateOne(req.params.id);
+        const response = this.controller.updateOne(req.body, req.params.id);
       res.send(response);
     });
     //delete to destroy one row in db table contact

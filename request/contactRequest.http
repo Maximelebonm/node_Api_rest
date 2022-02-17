@@ -1,10 +1,32 @@
 POST http://localhost:5001/contact
 Content-Type: application/json
 
-{
+[   
+    {
     "firstname":"truc",
     "lastname" : "test",
     "email":"test",
     "message":"blabla"
-}
+    },
+    {
+    "firstname":"truc2",
+    "lastname" : "test2",
+    "email":"test2",
+    "message":"blabla2"
+    }
+]
+ 
+    # {
+    # "firstname":"slt",
+    # "lastname" : "lala",
+    # "email":"lala",
+    # "message":"blabla"
+    # }
+
+
+
+
+
+
+
 
